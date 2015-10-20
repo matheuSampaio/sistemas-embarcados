@@ -1,4 +1,4 @@
-# sistemas-embarcados
+# Sistemas Embarcados
 
 Projeto criado na disciplina de Sistemas Embarcados 2015.2 do curso de Sistemas de Informação do Instituto Federal de Educação, Ciência e Tecnologia da Bahia (IFBA), campus Vitória da Conquista.
 
