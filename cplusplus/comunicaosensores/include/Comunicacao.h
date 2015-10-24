@@ -46,7 +46,7 @@ private:
 public:
 	Comunicacao(char* porta);
 
-	//iniciar a comunicação com a porta Serial -- retorna 0 se der tudo certo, retorna #! se ocorrer problema
+	//iniciar a comunicacao com a porta Serial -- retorna 0 se der tudo certo, retorna #! se ocorrer problema
 	int iniciar();
 
 	//realizar a leitura de um buffer a partir de uma porta Serial
