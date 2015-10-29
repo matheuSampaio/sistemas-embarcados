@@ -8,6 +8,8 @@
 
 #include "Extern.h"
 #include "Comunicacao.h"
+#include <math.h>
+
 
 struct Eixos {
   short acelX, acelY, acelZ;
@@ -16,6 +18,10 @@ struct Eixos {
 Eixos eixos;
 
 Comunicacao com = NULL;
+
+double anguloYZ = 0;
+double anguloXZ = 0;
+
 
 int iniciar(char* porta){
 	com = Comunicacao(porta);
@@ -53,4 +59,18 @@ int finalizar(){
 }
 
 
+double getAnguloYZ(){
+	anguloYZ = (double)eixos.acelY / (double) eixos.acelZ;
+	//convertendo de radiano pra decimal...
+	anguloYZ = anguloYZ * (57.2958);
+	return anguloYZ;
+}
+
+double getAnguloXZ(){
+	anguloXZ = atan ((double)eixos.acelX / (double) eixos.acelZ);
+	//convertendo em decimal...
+	anguloXZ = anguloXZ * (57.2958);
+	return anguloXZ;
+
+}
 

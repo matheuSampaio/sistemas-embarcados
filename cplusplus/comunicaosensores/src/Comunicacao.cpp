@@ -2,7 +2,7 @@
  * Comunicacao.cpp
  *
  *  Created on: 08/10/2015
- *      Author: Igo Romero Costa de Souza BSI 2011.2
+ *      Author: Matheus e Hugo BSI 2012.2
  */
 #include "Comunicacao.h"
 

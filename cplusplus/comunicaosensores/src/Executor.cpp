@@ -6,7 +6,7 @@
  */
 
 #include "Comunicacao.h"
-
+#include <math.h>
 #include <iostream>;
 using namespace std;
 
@@ -39,7 +39,7 @@ int main(int argc, char **argv){
 				}
 			}
 
-			Sleep(1000);
+			Sleep(100);
 		}
 	}
 	return EXIT_SUCCESS;

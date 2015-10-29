@@ -20,6 +20,10 @@ int getAcelY();
 int getAcelZ();
 int finalizar();
 
+double getAnguloYZ();
+double getAnguloXZ();
+
+
 #ifdef __cplusplus
 }
 #endif
