@@ -39,7 +39,7 @@ int main(int argc, char **argv){
 				}
 			}
 
-			Sleep(100);
+			Sleep(1000);
 		}
 	}
 	return EXIT_SUCCESS;
