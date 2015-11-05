@@ -8,7 +8,7 @@ public class Executor {
 
 	public static void main(String[] args) throws InterruptedException {
 		ListenerAcelerometro listener = new ListenerAcelerometro();
-		AsincExec asinc = new AsincExec("COM6");
+		AsincExec asinc = new AsincExec("COM5");
 		asinc.addListener(listener);
 
 		Thread t = new Thread(asinc);
