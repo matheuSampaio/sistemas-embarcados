@@ -1,25 +1,32 @@
 package br.edu.ifba.bsi.embarcados.regua;
 
 import br.edu.ifba.bsi.embarcados.regua.asincexec.AsincExec;
-import br.edu.ifba.bsi.embarcados.regua.conector.FabricaConectores;
-import br.edu.ifba.bsi.embarcados.regua.conector.IComunicacaoSensores;
+import br.edu.ifba.bsi.embarcados.regua.asincexec.IListenerAcelerometro;
+import br.edu.ifba.bsi.embarcados.regua.grafico.Dialog;
 
 public class Executor {
 
 	public static void main(String[] args) throws InterruptedException {
-		ListenerAcelerometro listener = new ListenerAcelerometro();
-		AsincExec asinc = new AsincExec("COM6");
-		asinc.addListener(listener);
+		AsincExec asincExec = new AsincExec("COM6");
+		
+		Dialog dialog = new Dialog();
+		
 
-		Thread t = new Thread(asinc);
+		IListenerAcelerometro listener = dialog.getListener();
+		
+		asincExec.addListener(listener);
+		
+		Thread t  = new Thread(asincExec);
 		t.start();
 
-		for (int i = 0; i < 10; i++) {
-			Thread.sleep(1000);
-		}
-		// parar a thread
-		asinc.setContinuar(false);
-		// ter certeza que parou
+		dialog.init();
+		
+//		for(int i=0;i<10;i++){
+//			Thread.sleep(1000); //thread principal
+//		}
+		
+		asincExec.setContinuar(false);
 		t.join();
 	}
+	
 }
