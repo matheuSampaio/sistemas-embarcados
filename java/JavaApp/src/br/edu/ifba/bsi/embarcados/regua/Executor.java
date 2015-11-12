@@ -18,14 +18,9 @@ public class Executor {
 		
 		Thread t  = new Thread(asincExec);
 		t.start();
-
+		
 		dialog.init();
-		
-//		for(int i=0;i<10;i++){
-//			Thread.sleep(1000); //thread principal
-//		}
-		
-		asincExec.setContinuar(false);
+
 		t.join();
 	}
 	

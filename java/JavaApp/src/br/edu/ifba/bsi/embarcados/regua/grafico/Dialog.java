@@ -8,7 +8,11 @@ import br.edu.ifba.bsi.embarcados.regua.asincexec.IListenerAcelerometro;
 
 public class Dialog extends JDialog {
 	
-	Panel tela;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Panel tela = new Panel();
 	
 	
 	
@@ -26,7 +30,7 @@ public class Dialog extends JDialog {
 		setLayout(new GridLayout(1, 1, 0, 0));
 		
 		
-		tela = new Panel();
+//		tela = new Panel();
 		add(tela);
 		setVisible(true);
 		setModal(true);
