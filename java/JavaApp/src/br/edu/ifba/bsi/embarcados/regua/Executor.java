@@ -20,6 +20,8 @@ public class Executor {
 		t.start();
 		
 		dialog.init();
+		
+		asincExec.setContinuar(false);
 
 		t.join();
 	}
