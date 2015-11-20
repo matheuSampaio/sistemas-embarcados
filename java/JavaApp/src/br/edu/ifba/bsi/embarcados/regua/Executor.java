@@ -21,7 +21,7 @@ public class Executor {
 		
 		dialog.init();
 		
-		asincExec.setContinuar(false);
+		asincExec.setContinuar(false); 
 
 		t.join();
 	}
