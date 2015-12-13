@@ -1,0 +1,47 @@
+/*
+ * Executor.cpp
+ *
+ *  Created on: 26 de nov de 2015
+ *      Author: MATHEUS
+ */
+
+#include <iostream>
+#include "Comunicacao.h"
+using namespace std;
+
+struct InfoRF {
+	int id;
+	int luminosidade;
+	int temperatura;
+	int distancia;
+};
+
+int main(int argc, char **argv) {
+	InfoRF infoRF = { 0 };
+
+	Comunicacao com("COM5");
+	if (com.iniciar() == EXIT_SUCCESS) { //testa para erro - nega a condicao
+		char ci, cf;
+		InfoRF info = { 0 };
+
+		while (true) {
+			int resultado = com.ler((char*) &ci, sizeof(ci));
+			if ((resultado == EXIT_SUCCESS) && (ci == 'I')) {
+				resultado = com.ler((char*) &info, sizeof(info));
+				if (resultado == EXIT_SUCCESS) {
+					resultado = com.ler((char*) &cf, sizeof(cf));
+
+					if ((resultado == EXIT_SUCCESS) && (cf == 'F')) {
+						cout << "id: " << info.id << ", luminosidade: " << info.luminosidade
+							 << ", temperatura: " << info.temperatura
+							 << ", distancia: " << info.distancia << endl;
+					}
+				}
+
+			}
+			Sleep(50);
+		}
+	}
+	return EXIT_SUCCESS;
+}
+

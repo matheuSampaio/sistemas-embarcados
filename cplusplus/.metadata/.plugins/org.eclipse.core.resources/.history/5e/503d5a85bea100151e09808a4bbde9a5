@@ -1,0 +1,37 @@
+/*
+ * Executor.cpp
+ *
+ *  Created on: 26 de nov de 2015
+ *      Author: MATHEUS
+ */
+
+#include <iostream>
+#include "Comunicacao.h"
+using namespace std;
+
+struct InfoRF {
+	int id;
+	int luminosidade;
+	int temperatura;
+	int distancia;
+};
+
+int main(int argc, char **argv) {
+	InfoRF infoRF = { 0 };
+
+	Comunicacao com("COM6");
+	com.iniciar();
+
+	while (true) {
+		if (com.ler((char*) &infoRF, sizeof(InfoRF)) == 0) {
+			cout << "id = " << infoRF.id << endl;
+			cout << "luminosidade = " << infoRF.luminosidade << endl;
+			cout << "temperatura = " << infoRF.temperatura << endl;
+			cout << "distancia = " << infoRF.distancia << endl;
+		}
+		Sleep(50);
+	}
+
+	return 0;
+}
+

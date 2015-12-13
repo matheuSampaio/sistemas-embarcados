@@ -82,20 +82,20 @@ long receber() {
 void enviarParaUSB(){
 
   //TESTE
-  Serial.print("id: ");
-  Serial.print(infoRF.id);
-  Serial.print(", luminosidade: ");
-  Serial.print(infoRF.luminosidade); 
-  Serial.print(", temperatura: ");
-  Serial.print(infoRF.temperatura);
-  Serial.print(", distância: ");
-  Serial.println(infoRF.distancia);
+  //Serial.print("id: ");
+  //Serial.print(infoRF.id);
+  //Serial.print(", luminosidade: ");
+  //Serial.print(infoRF.luminosidade); 
+  //Serial.print(", temperatura: ");
+  //Serial.print(infoRF.temperatura);
+  //Serial.print(", distância: ");
+  //Serial.println(infoRF.distancia);
   
-  //char buff[sizeof(InfoRF)]={0};
-  //memcpy(&buff, &infoRF, sizeof(InfoRF));
-  //Serial.write('I');
-  //Serial.write((uint8_t*) &buff, sizeof(InfoRF));
-  //Serial.write('F');
+  char buff[sizeof(InfoRF)]={0};
+  memcpy(&buff, &infoRF, sizeof(InfoRF));
+  Serial.write('I');
+  Serial.write((uint8_t*) &buff, sizeof(InfoRF));
+  Serial.write('F');
 }
 
 int extrairDistancia(long info) {
@@ -119,7 +119,7 @@ void loop() {
   long info = lerSensoresRF(); 
   emitir(info);
     
-  delay(500);
+  delay(50);
   
   // RECEPCAO DE DADOS
   info = receber();
