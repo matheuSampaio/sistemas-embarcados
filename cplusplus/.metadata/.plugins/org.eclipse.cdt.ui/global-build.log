@@ -1,0 +1,21 @@
+18:47:44 **** Clean-only build of configuration Release for project comunicaosensores ****
+make clean 
+rm -rf  ./src/Comunicacao.o ./src/Extern.o  ./src/Comunicacao.d ./src/Extern.d  comunicaosensores.dll
+ 
+18:47:50 **** Build of configuration Release for project comunicaosensores ****
+make all 
+Building file: ../src/Comunicacao.cpp
+Invoking: GCC C++ Compiler
+g++ -m64 -I"D:\Sistemas Embarcados\Workspaces\sistemas-embarcados\cplusplus\comunicaosensores\include" -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Comunicacao.d" -MT"src/Comunicacao.o" -o "src/Comunicacao.o" "../src/Comunicacao.cpp"
+Finished building: ../src/Comunicacao.cpp
+ 
+Building file: ../src/Extern.cpp
+Invoking: GCC C++ Compiler
+g++ -m64 -I"D:\Sistemas Embarcados\Workspaces\sistemas-embarcados\cplusplus\comunicaosensores\include" -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Extern.d" -MT"src/Extern.o" -o "src/Extern.o" "../src/Extern.cpp"
+Finished building: ../src/Extern.cpp
+ 
+Building target: comunicaosensores.dll
+Invoking: MinGW C++ Linker
+g++ -shared -o "comunicaosensores.dll"  ./src/Comunicacao.o ./src/Extern.o   
+Finished building target: comunicaosensores.dll
+ 
