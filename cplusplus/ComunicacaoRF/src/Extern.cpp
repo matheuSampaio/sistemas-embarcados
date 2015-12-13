@@ -5,21 +5,22 @@
  *      Author: MATHEUS
  */
 
+#include <Comunicacao.h>
 #include "Extern.h"
-#include "Comunicacao.h"
+#include <cstdlib>
 
 struct InfoRF {
-  int id;
-  int luminosidade;
-  int temperatura;
-  int distancia;
+  short id;
+  short luminosidade;
+  short temperatura;
+  short distancia;
 } infoRF;
 
 
 Comunicacao com = NULL;
 
 int iniciar(char* porta){
-	com = Comunicacao("COM5");
+	com = Comunicacao(porta);
 	return com.iniciar();
 }
 int ler(){

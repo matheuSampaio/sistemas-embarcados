@@ -19,7 +19,7 @@ struct InfoRF {
 int main(int argc, char **argv) {
 	InfoRF infoRF = { 0 };
 
-	Comunicacao com("COM5");
+	Comunicacao com("COM6");
 	if (com.iniciar() == EXIT_SUCCESS) { //testa para erro - nega a condicao
 		char ci, cf;
 
