@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form id="formMonitor">
+		<p:inputText id="valores" value="#{monitor.luminosidade}"/>	
+		<p:inputText id="temperatura" value="#{monitor.temperatura}" />
+		<p:inputText id="distancia" value="#{monitor.distancia}" />
+		<p:poll interval="1" listener="#{monitor.lerSensores}" update="formMonitor:valores, formMonitor:temperatura, formMonitor:distancia"></p:poll>
+	</h:form>
+</h:body>
+</html>
