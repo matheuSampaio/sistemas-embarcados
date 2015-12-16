@@ -6,14 +6,33 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="js/script.js"></script>
 </h:head>
 
 <h:body>
+	<img id="lampada" src="img/lampada.jpg"></img>
+	<img class="luz" src="img/luz.png"></img>
+	<img class="luz2" src="img/luz2.png"></img>
+	<img id="tv" src="img/tv.png"></img>
+	<img id="naruto" src="img/naruto.gif"></img>
 	<h:form id="formMonitor">
-		<p:inputText id="valores" value="#{monitor.luminosidade}"/>	
-		<p:inputText id="temperatura" value="#{monitor.temperatura}" />
-		<p:inputText id="distancia" value="#{monitor.distancia}" />
-		<p:poll interval="1" listener="#{monitor.lerSensores}" update="formMonitor:valores, formMonitor:temperatura, formMonitor:distancia"></p:poll>
+		<p:inputText id="luminosidade" value="#{monitor.luminosidade}" type="hidden"/>	
+		<p:inputText id="temperatura" value="#{monitor.temperatura}" type="hidden"/>
+		<p:inputText id="distancia" value="#{monitor.distancia}" type="hidden"/>
+		<p:panel style="height: 215px;margin-top: 415px;">
+			<div id="divluminosidade" style="float:left">
+				<p:chart type="metergauge" id="medidorLuminosidade" style="width:350px;height:200px;background-color:transparent" model="#{monitor.medidorLuminosidade}"></p:chart>
+			</div>
+			<div id="divtemperatura" style="float:left">
+				<p:chart type="metergauge" id="medidorTemperatura" style="width:350px;height:200px" model="#{monitor.medidorTemperatura}"></p:chart>
+			</div>
+			<div id="divdistancia" style="float:left">
+				<p:chart type="metergauge" id="medidorDistancia" style="width:350px;height:200px" model="#{monitor.medidorDistancia}"></p:chart>
+			</div>
+		</p:panel>
+		<p:poll interval="1" listener="#{monitor.lerSensores}" update="formMonitor:luminosidade, formMonitor:temperatura, 
+		formMonitor:distancia, formMonitor:medidorLuminosidade, formMonitor:medidorTemperatura, formMonitor:medidorDistancia"></p:poll>
 	</h:form>
 </h:body>
 </html>

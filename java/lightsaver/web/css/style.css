@@ -1,0 +1,40 @@
+body{
+	background: rgba(21, 21, 21, 0.99);
+}
+
+#lampada{
+	position: absolute;
+    width: 13%;
+    margin-left: 42%;
+    margin-top: -460;
+}
+
+.luz{
+	position: absolute;
+    width: 13%;
+    margin-left: 42%;
+    margin-top: -460;
+}
+
+.luz2{
+	position: absolute;
+    width: 13%;
+    margin-left: 42.1%;
+    margin-top: -460;
+}
+
+#tv{
+    position: absolute;
+    width: 30%;
+    margin-top: -300px;
+    margin-left: 850px;
+}
+
+#naruto{
+    position: absolute;
+    margin-top: -288px;
+    margin-left: 858px;
+    z-index: -1;
+    width: 394px;
+    height: 216px;
+}
