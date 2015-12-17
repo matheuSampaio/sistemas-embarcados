@@ -21,6 +21,9 @@ public class Monitor {
 	private MeterGaugeChartModel medidorTemperatura;
 	private MeterGaugeChartModel medidorDistancia;
 	
+	private int distanciaMaxima = 200;
+	private int temperaturaLimite = 28;
+	
 	@PostConstruct
 	public void iniciar(){
 		configurarMedidores();
@@ -47,7 +50,7 @@ public class Monitor {
 	
 	private void configurarMedidores(){
 
-		medidorLuminosidade = criarMedidor(150, 10);
+		medidorLuminosidade = criarMedidor(200, 10);
 		medidorTemperatura = criarMedidor(50,10);
 		medidorDistancia = criarMedidor(250, 10);
 		
@@ -112,6 +115,21 @@ public class Monitor {
 	public void setMedidorTemperatura(MeterGaugeChartModel medidorTemperatura) {
 		this.medidorTemperatura = medidorTemperatura;
 	}
+	
+	//sliders
+	public int getDistanciaMaxima() {
+		return distanciaMaxima;
+	}
+	public int getTemperaturaLimite() {
+		return temperaturaLimite;
+	}
+	public void setDistanciaMaxima(int distanciaMaxima) {
+		this.distanciaMaxima = distanciaMaxima;
+	}
+	public void setTemperaturaLimite(int temperaturaLimite) {
+		this.temperaturaLimite = temperaturaLimite;
+	}
+	
 	
 		
 

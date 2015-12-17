@@ -11,6 +11,8 @@ function loop() {
 	
 	mudaClaridade();
 	ligaDesligaTV();
+	condiguraArcond();
+	
 	
     window.setTimeout(function() { loop() }, 500);
 }
@@ -29,10 +31,27 @@ function mudaClaridade(){
 }
 
 function ligaDesligaTV(){
+	var distanciaMaxima = $("[id$='distanciaMaxima']").val();
 	var distancia =  $("[id*='distancia']").val();
-	if(distancia < 200){
+	if(distancia > distanciaMaxima){
 		$("#naruto").attr("src", "img/desligada.png");
 	}else if($("#naruto").attr("src") != "img/naruto.gif"){
 		$("#naruto").attr("src", "img/naruto.gif");
+	}
+}
+
+function condiguraArcond(){
+	var temperaturaLimite = $("[id$='temperaturaLimite']").val();
+	var temperatura = $("[id$='temperatura']").val();
+	if(temperatura > temperaturaLimite){
+		
+		var valor = temperaturaLimite - ((temperatura-temperaturaLimite)+5);
+		$("#redlight").show();
+		$("#mostrador").css("background-color", "#3CFFF6");
+		$("#mostrador").val(valor+" ºC");
+	}else{
+		$("#redlight").hide();
+		$("#mostrador").css("background-color", "#A2B49A");
+		$("#mostrador").val("");
 	}
 }

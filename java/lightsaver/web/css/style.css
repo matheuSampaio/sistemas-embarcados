@@ -38,3 +38,45 @@ body{
     width: 394px;
     height: 216px;
 }
+
+#sliderDistancia{
+    position: absolute;
+    margin-left: 800px;
+    margin-top: 200px;
+}
+
+#sliderTemperatura{
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 425px;
+}
+
+#arcond{
+	position: absolute;
+    width: 40%;
+    margin-top: -400px;
+}
+
+#redlight{
+    position: absolute;
+    width: 2%;
+    margin-top: -350px;
+    margin-left: 470px;
+}
+
+#mostrador{
+    position: absolute;
+    margin-top: -366px;
+    width: 100px;
+    font-size: 32px;
+    margin-left: 320px;
+    border: none;
+    background-color: #A2B49A;
+    font-family: 'verdana';
+}
+
+#lightsaver{
+    position: absolute;
+    width: 30%;
+    margin-top: -250px;
+}

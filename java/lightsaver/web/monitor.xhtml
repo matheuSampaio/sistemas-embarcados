@@ -16,11 +16,15 @@
 	<img class="luz2" src="img/luz2.png"></img>
 	<img id="tv" src="img/tv.png"></img>
 	<img id="naruto" src="img/naruto.gif"></img>
+	<img id="arcond" src="img/arcond.png"></img>
+	<img id="redlight" src="img/redlight.png"></img>
+	<img id="lightsaver" src="img/lightsaver.png"></img>
+	<input type="text" disabled="disabled" value="" id="mostrador"/>
 	<h:form id="formMonitor">
 		<p:inputText id="luminosidade" value="#{monitor.luminosidade}" type="hidden"/>	
 		<p:inputText id="temperatura" value="#{monitor.temperatura}" type="hidden"/>
 		<p:inputText id="distancia" value="#{monitor.distancia}" type="hidden"/>
-		<p:panel style="height: 215px;margin-top: 415px;">
+		<p:panel style="height: 375px;margin-top: 415px;">
 			<div id="divluminosidade" style="float:left">
 				<p:chart type="metergauge" id="medidorLuminosidade" style="width:350px;height:200px;background-color:transparent" model="#{monitor.medidorLuminosidade}"></p:chart>
 			</div>
@@ -29,6 +33,22 @@
 			</div>
 			<div id="divdistancia" style="float:left">
 				<p:chart type="metergauge" id="medidorDistancia" style="width:350px;height:200px" model="#{monitor.medidorDistancia}"></p:chart>
+			</div>
+			<div id="sliderDistancia">
+				<h3>Distância máxima</h3>
+			    <h:panelGrid columns="1" style="margin-bottom: 10px">
+			        <h:outputText id="outputDistancia" value="#{monitor.distanciaMaxima} cm" />
+			        <h:inputHidden id="distanciaMaxima" value="#{monitor.distanciaMaxima}" />
+			        <p:slider maxValue="250" for="distanciaMaxima" display="outputDistancia" style="width: 200px" displayTemplate="{value} cm" />
+			    </h:panelGrid>
+			</div>
+			<div id="sliderTemperatura">
+				<h3>Temperatura limite</h3>
+			    <h:panelGrid columns="1" style="margin-bottom: 10px">
+			        <h:outputText id="outputTemperatura" value="#{monitor.temperaturaLimite} ºC" />
+			        <h:inputHidden id="temperaturaLimite" value="#{monitor.temperaturaLimite}" />
+			        <p:slider maxValue="50" for="temperaturaLimite" display="outputTemperatura" style="width: 200px" displayTemplate="{value} ºC" />
+			    </h:panelGrid>
 			</div>
 		</p:panel>
 		<p:poll interval="1" listener="#{monitor.lerSensores}" update="formMonitor:luminosidade, formMonitor:temperatura, 
