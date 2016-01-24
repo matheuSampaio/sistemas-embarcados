@@ -21,7 +21,7 @@ public class Dialog extends JDialog {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setSize(900, 500);
 		setResizable(false);
-		setTitle("Régua de nivelamento");
+		setTitle("RÃ©gua de nivelamento");
 		
 	}
 	

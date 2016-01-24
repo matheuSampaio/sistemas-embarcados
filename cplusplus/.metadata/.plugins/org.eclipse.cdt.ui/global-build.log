@@ -1,15 +1,19 @@
-15:03:14 **** Incremental Build of configuration Debug for project ComunicacaoRF ****
-Info: Internal Builder is used for build
-g++ "-ID:\\Sistemas Embarcados\\sistemas-embarcados\\cplusplus\\ComunicacaoRF\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Executor.o" "..\\src\\Executor.cpp" 
-..\src\Executor.cpp: In function 'int main(int, char**)':
-..\src\Executor.cpp:22:24: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-  Comunicacao com("COM5");
-                        ^
-g++ "-ID:\\Sistemas Embarcados\\sistemas-embarcados\\cplusplus\\ComunicacaoRF\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Extern.o" "..\\src\\Extern.cpp" 
-..\src\Extern.cpp: In function 'int iniciar(char*)':
-..\src\Extern.cpp:22:26: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-  com = Comunicacao("COM5");
-                          ^
-g++ "-ID:\\Sistemas Embarcados\\sistemas-embarcados\\cplusplus\\ComunicacaoRF\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Comunicacao.o" "..\\src\\Comunicacao.cpp" 
-g++ -o ComunicacaoRF.exe "src\\Extern.o" "src\\Executor.o" "src\\Comunicacao.o" 
-Info: Nothing to build for ComunicacaoRF
+13:40:28 **** Clean-only build of configuration Debug for project sensoriamento ****
+make clean 
+rm -rf  ./src/daemon.o  ./src/daemon.d  sensoriamento
+ 
+13:40:29 **** Incremental Build of configuration Debug for project sensoriamento ****
+make all 
+Building file: ../src/daemon.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/daemon.d" -MT"src/daemon.o" -o "src/daemon.o" "../src/daemon.cpp"
+../src/daemon.cpp:29:15: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+ char* porta = "/dev/ttyACM1";
+               ^
+Finished building: ../src/daemon.cpp
+ 
+Building target: sensoriamento
+Invoking: GCC C++ Linker
+g++  -o "sensoriamento"  ./src/daemon.o   
+Finished building target: sensoriamento
+ 

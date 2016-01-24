@@ -79,7 +79,7 @@ long receber() {
   return info;
 }
 
-void enviarParaUSB(){
+void enviarParaUSB(long info){
 
   //TESTE
   //Serial.print("id: ");
@@ -91,11 +91,13 @@ void enviarParaUSB(){
   //Serial.print(", distância: ");
   //Serial.println(infoRF.distancia);
   
-  char buff[sizeof(InfoRF)]={0};
-  memcpy(&buff, &infoRF, sizeof(InfoRF));
-  Serial.write('I');
-  Serial.write((uint8_t*) &buff, sizeof(InfoRF));
-  Serial.write('F');
+  //char buff[sizeof(InfoRF)]={0};
+  //memcpy(&buff, &infoRF, sizeof(InfoRF));
+  //Serial.write('I');
+  //Serial.write((uint8_t*) &buff, sizeof(InfoRF));
+  //Serial.write('F');
+  Serial.write(info);
+  Serial.println(info);
 }
 
 int extrairDistancia(long info) {
@@ -125,10 +127,10 @@ void loop() {
   info = receber();
   if (info != -1) {
     if (RFIDValido(info)) {
-     infoRF.luminosidade = extrairLuminosidade(info);
-     infoRF.temperatura = extrairTemperatura(info);
-     infoRF.distancia = extrairDistancia(info);
-     enviarParaUSB();
+     //infoRF.luminosidade = extrairLuminosidade(info);
+     //infoRF.temperatura = extrairTemperatura(info);
+     //infoRF.distancia = extrairDistancia(info);
+     enviarParaUSB(info);
      }
   }
 }

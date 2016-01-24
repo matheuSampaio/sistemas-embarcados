@@ -7,7 +7,7 @@ import br.edu.ifba.bsi.embarcados.regua.grafico.Dialog;
 public class Executor {
 
 	public static void main(String[] args) throws InterruptedException {
-		AsincExec asincExec = new AsincExec("COM6");
+		AsincExec asincExec = new AsincExec("dev/ttyACM0");
 		
 		Dialog dialog = new Dialog();
 		
