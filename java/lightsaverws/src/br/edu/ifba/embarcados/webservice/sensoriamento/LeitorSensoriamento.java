@@ -6,9 +6,9 @@ import java.io.RandomAccessFile;
 
 public class LeitorSensoriamento implements Runnable {
 
-	private static final int DESLOCAMENTO_RFID  = 17;
-	private static final int DESLOCAMENTO_MOVMT = 16;
-	private static final int DESLOCAMENTO_BATMT = 8;
+	private static final int DESLOCAMENTO_RFID  = 24;
+	private static final int DESLOCAMENTO_TEMP = 16;
+	private static final int DESLOCAMENTO_LUMIN = 8;
 	
 	// referencia/acesso estatico a sensores
 	private static Integer sensores = 0;
@@ -27,23 +27,23 @@ public class LeitorSensoriamento implements Runnable {
 		return id;
 	}
 	
-	public static int getMovimento() {
+	public static int getTemperatuda() {
 		int mov = getSensores();
 		
-		mov = (mov & 65536) >> DESLOCAMENTO_MOVMT;
+		mov = (mov & 65535) >> DESLOCAMENTO_TEMP;
 		
 		return mov;
 	}
 	
-	public static int getBatimentos() {
+	public static int getLuminosidade() {
 		int bat = getSensores();
 		
-		bat = (bat & 65280) >> DESLOCAMENTO_BATMT;
+		bat = (bat & 16777215) >> DESLOCAMENTO_LUMIN;
 		
 		return bat;
 	}
 	
-	public static int getTemperatura() {
+	public static int getDistancia() {
 		int temp = getSensores();
 		
 		temp = (temp & 255);

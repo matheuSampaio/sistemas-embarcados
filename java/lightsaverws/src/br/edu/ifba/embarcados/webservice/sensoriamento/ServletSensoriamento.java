@@ -1,7 +1,5 @@
 package br.edu.ifba.embarcados.webservice.sensoriamento;
 
-import javax.servlet.ServletException;
-
 import com.sun.jersey.spi.container.servlet.ServletContainer;
 import com.sun.jersey.spi.container.servlet.WebConfig;
 
