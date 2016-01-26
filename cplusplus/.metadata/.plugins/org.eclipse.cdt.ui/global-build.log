@@ -1,19 +1,21 @@
-13:40:28 **** Clean-only build of configuration Debug for project sensoriamento ****
-make clean 
-rm -rf  ./src/daemon.o  ./src/daemon.d  sensoriamento
- 
-13:40:29 **** Incremental Build of configuration Debug for project sensoriamento ****
+00:14:04 **** Incremental Build of configuration Release for project sensoriamento ****
 make all 
+Building file: ../src/comunicacao.cpp
+Invoking: GCC C++ Compiler
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/comunicacao.d" -MT"src/comunicacao.o" -o "src/comunicacao.o" "../src/comunicacao.cpp"
+Finished building: ../src/comunicacao.cpp
+ 
 Building file: ../src/daemon.cpp
 Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/daemon.d" -MT"src/daemon.o" -o "src/daemon.o" "../src/daemon.cpp"
-../src/daemon.cpp:29:15: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
- char* porta = "/dev/ttyACM1";
-               ^
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/daemon.d" -MT"src/daemon.o" -o "src/daemon.o" "../src/daemon.cpp"
+../src/daemon.cpp: In function ‘int main(int, char**)’:
+../src/daemon.cpp:134:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   com = Comunicacao(PORTA);
+                          ^
 Finished building: ../src/daemon.cpp
  
 Building target: sensoriamento
 Invoking: GCC C++ Linker
-g++  -o "sensoriamento"  ./src/daemon.o   
+g++  -o "sensoriamento"  ./src/comunicacao.o ./src/daemon.o   
 Finished building target: sensoriamento
  

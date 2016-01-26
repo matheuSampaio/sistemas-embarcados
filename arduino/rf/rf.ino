@@ -16,12 +16,18 @@ RCSwitch receptor = RCSwitch();
 #define PINO_TEMPERATURA   2
 #define PINO_DISTANCIA   3    
 
+//#define MIDDLEWARE
+
+#ifdef MIDDLEWARE
 struct InfoRF {
   int id;
   int luminosidade;
   int temperatura;
   int distancia;
 } infoRF;
+#else
+  long infoRF;
+#endif
 
 void setup() {
   Serial.begin(9600);
@@ -51,13 +57,21 @@ long lerSensoresRF() {
   return info;  
 }
 
-int RFIDValido(long info) {
+int RFIDValido(long rf) {
   int valido = 0;
   
-  infoRF.id = info >> DESLOCAMENTO_RFID;
+#ifdef MIDDLEWARE
+  infoRF.id = rf >> DESLOCAMENTO_RFID;
   if ((infoRF.id >= RFID_LIMITE_INFERIOR) && (infoRF.id <= RFID_LIMITE_SUPERIOR)) {
      valido = 1; 
   }
+#else
+  int id = rf >> DESLOCAMENTO_RFID;
+  if ((id >= RFID_LIMITE_INFERIOR) && (id <= RFID_LIMITE_SUPERIOR)) {
+     valido = 1; 
+  }
+
+#endif
 
   return valido;  
 }
@@ -79,7 +93,7 @@ long receber() {
   return info;
 }
 
-void enviarParaUSB(long info){
+void enviarParaUSB(){
 
   //TESTE
   //Serial.print("id: ");
@@ -91,15 +105,21 @@ void enviarParaUSB(long info){
   //Serial.print(", distância: ");
   //Serial.println(infoRF.distancia);
   
-  //char buff[sizeof(InfoRF)]={0};
-  //memcpy(&buff, &infoRF, sizeof(InfoRF));
-  //Serial.write('I');
-  //Serial.write((uint8_t*) &buff, sizeof(InfoRF));
-  //Serial.write('F');
-  Serial.write(info);
-  Serial.println(info);
+#ifdef MIDDLEWARE
+  char buff[sizeof(InfoRF)]={0};
+  memcpy(&buff, &infoRF, sizeof(InfoRF));
+  
+  Serial.write('I');
+  Serial.write((uint8_t*) &buff, sizeof(InfoRF));
+  Serial.write('F');
+#else
+  Serial.write('I');
+  Serial.write((uint8_t*) &infoRF, sizeof(infoRF));
+  Serial.write('F');
+#endif
 }
 
+#ifdef MIDDLEWARE
 int extrairDistancia(long info) {
   int distancia = (info & 255);
   return distancia;
@@ -114,6 +134,7 @@ int extrairLuminosidade(long info) {
   int luminosidade = (info & 16777215) >> DESLOCAMENTO_LUMINOSIDADE;
   return luminosidade;
 }
+#endif
 
 
 void loop() {
@@ -127,10 +148,14 @@ void loop() {
   info = receber();
   if (info != -1) {
     if (RFIDValido(info)) {
-     //infoRF.luminosidade = extrairLuminosidade(info);
-     //infoRF.temperatura = extrairTemperatura(info);
-     //infoRF.distancia = extrairDistancia(info);
-     enviarParaUSB(info);
+#ifdef MIDDLEWARE
+     infoRF.luminosidade = extrairLuminosidade(info);
+     infoRF.temperatura = extrairTemperatura(info);
+     infoRF.distancia = extrairDistancia(info);
+#else
+  infoRF = info;
+#endif
+     enviarParaUSB();
      }
   }
 }

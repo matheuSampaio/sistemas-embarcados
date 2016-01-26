@@ -19,17 +19,18 @@
 #include <string.h>
 #include <signal.h>
 
+#include "../include/comunicacao.h"
+
 using namespace std;
 
 #define ARQUIVO_LOG 	"/home/matheus/Documents/sistemas-embarcados/cplusplus/sensoriamento/sensoramento.log"
 #define ARQUIVO_PIPE 	"/home/matheus/Documents/sistemas-embarcados/cplusplus/sensoriamento/sensor"
+#define PORTA					"/dev/ttyACM0"
 
 bool continuar = true;
 int sensores = 0;
-char* porta = "/dev/ttyACM1";
-int hPorta=0;
-bool portainiciada = false;
-int resultado = EXIT_SUCCESS;
+
+Comunicacao com = NULL;
 
 int daemonize() {
 	int resultado = EXIT_SUCCESS;
@@ -66,21 +67,22 @@ bool pipeIniciado() {
 	return (resultado != -1);
 }
 
-void IniciarConexao(){
-	hPorta  = open(porta, O_RDWR | O_NOCTTY | O_NDELAY);
-			if (hPorta == -1){
-				resultado = EXIT_FAILURE;
-				usleep(2000*1000);
-			} else {
-				fcntl(hPorta, F_SETFL, 0);
-				resultado = EXIT_SUCCESS;
-			}
-
-}
 int lerSensores() {
+	int sensores = -1;
 
-	read(hPorta, (int*)&sensores, sizeof(sensores));
-	usleep(500*1000);
+	char ci=0,  cf=0;
+	int resultado = com.ler((char*) &ci, sizeof(ci));
+	if ((resultado == EXIT_SUCCESS) && (ci == 'I')) {
+		int is = 0;
+		resultado = com.ler((char*) &is, sizeof(is));
+		if (resultado == EXIT_SUCCESS) {
+			resultado = com.ler((char*) &cf, sizeof(cf));
+			if ((resultado == EXIT_SUCCESS) && (cf == 'F')) {
+					sensores = is;
+			}
+		}
+
+	}
 
 
 	return sensores;
@@ -129,30 +131,31 @@ int main(int argc, char* argv[]) {
 		ofstream log(ARQUIVO_LOG, ios_base::out | ios_base::app);
 		log << "Arquivo de log iniciado!" << endl;
 
+		com = Comunicacao(PORTA);
+		if(com.iniciar()!=0){
+			log << "Falha de inicializacao na comunicacao com sensores"<<endl;
+			exit(1);
+		}
+
 		log << "Pipe sendo criando..." << endl;
 		if (!pipeIniciado()) {
 			log << "Falha de inicializacao do PIPE" << endl;
 
-			exit(1);
+			exit(2);
 		}
 
 		continuar = true;
 		while (continuar) {
-			IniciarConexao();
 			int sensores = lerSensores();
-
-			if(resultado == 0){
 
 			log << "Enviando sensores: " << sensores << endl;
 			enviarParaPipe(sensores);
 
 			sleep(1);
-			}else{
-			log << "Problemas em conectar com a porta"<<endl;
-
-			}
 		}
 		unlink(ARQUIVO_PIPE);
+
+		com.finalizar();
 
 		log << "Daemon de sensoriamento finalizado!" << endl;
 	}
