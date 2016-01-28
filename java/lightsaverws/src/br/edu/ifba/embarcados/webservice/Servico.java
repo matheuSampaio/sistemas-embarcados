@@ -25,24 +25,24 @@ public class Servico {
 	}
 
 	@GET
-	@Path("/sensores/movimento")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getMovimento() {
-		return LeitorSensoriamento.getMovimento() + "";
-	}
-
-	@GET
-	@Path("/sensores/batimentos")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getBatimentos() {
-		return LeitorSensoriamento.getBatimentos() + "";
-	}
-
-	@GET
 	@Path("/sensores/temperatura")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getTemperatura() {
 		return LeitorSensoriamento.getTemperatura() + "";
+	}
+
+	@GET
+	@Path("/sensores/distancia")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getDistancia() {
+		return LeitorSensoriamento.getDistancia() + "";
+	}
+
+	@GET
+	@Path("/sensores/luminosidade")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getLuminosidade() {
+		return LeitorSensoriamento.getLuminosidade() + "";
 	}
 	
 }

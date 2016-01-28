@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<item value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19" key="org.eclipse.jdt.ui.lastextjar"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>
 		<item value="false" key="updateSimilarElements"/>
@@ -29,10 +30,16 @@
 	</section>
 	<section name="RenameInformationPopup">
 	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item value="11" key="index"/>
+	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="BuildPathsPropertyPage">
 		<item value="2" key="pageIndex"/>
+	</section>
+	<section name="NewPackageWizardPage">
+		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

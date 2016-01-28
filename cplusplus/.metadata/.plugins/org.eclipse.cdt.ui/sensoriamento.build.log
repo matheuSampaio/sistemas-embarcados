@@ -1,4 +1,4 @@
-00:14:04 **** Incremental Build of configuration Release for project sensoriamento ****
+16:45:11 **** Incremental Build of configuration Release for project sensoriamento ****
 make all 
 Building file: ../src/comunicacao.cpp
 Invoking: GCC C++ Compiler
@@ -20,5 +20,5 @@ g++  -o "sensoriamento"  ./src/comunicacao.o ./src/daemon.o
 Finished building target: sensoriamento
  
 
-00:14:05 Build Finished (took 569ms)
+16:45:13 Build Finished (took 1s.283ms)
 

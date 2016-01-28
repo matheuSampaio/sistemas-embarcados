@@ -27,28 +27,28 @@ public class LeitorSensoriamento implements Runnable {
 		return id;
 	}
 	
-	public static int getTemperatuda() {
-		int mov = getSensores();
+	public static int getLuminosidade() {
+		int lumin = getSensores();
 		
-		mov = (mov & 65535) >> DESLOCAMENTO_TEMP;
+		lumin = (lumin & 16777215) >> DESLOCAMENTO_TEMP;
 		
-		return mov;
+		return lumin;
 	}
 	
-	public static int getLuminosidade() {
-		int bat = getSensores();
+	public static int getTemperatura() {
+		int temp = getSensores();
 		
-		bat = (bat & 16777215) >> DESLOCAMENTO_LUMIN;
+		temp = (temp & 65535) >> DESLOCAMENTO_LUMIN;
 		
-		return bat;
+		return temp;
 	}
 	
 	public static int getDistancia() {
-		int temp = getSensores();
+		int dist = getSensores();
 		
-		temp = (temp & 255);
+		dist = (dist & 255);
 		
-		return temp;
+		return dist;
 	}
 
 	// acesso a arquivo PIPE de sensoriamento
@@ -73,7 +73,7 @@ public class LeitorSensoriamento implements Runnable {
 			try {
 				if (((s = fifo.readLine()) != null) && !s.equals("")) {
 					synchronized (sensores) {
-						sensores = Integer.parseInt(s);
+							sensores = Integer.parseInt(s);
 					}
 
 					Thread.sleep(1000);

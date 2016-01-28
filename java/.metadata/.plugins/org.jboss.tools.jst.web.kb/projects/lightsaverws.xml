@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-util.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jersey-json-1.19.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/catalina.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/catalina-tribes.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jersey-core-1.19.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jettison-1.1.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-i18n-fr.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/ecj-4.4.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jersey-client-1.19.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/catalina-storeconfig.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/annotations-api.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jackson-core-asl-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jersey-servlet-1.19.jar">
+   <libraries>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jersey-servlet-1.19.jar-1/META-INF/taglib.tld" project="lightsaverws"/>
+    </library>
+   </libraries>
+  </path>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jackson-mapper-asl-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-coyote.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jackson-core-asl-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-websocket.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jersey-servlet-1.19.jar">
+   <libraries>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jersey-servlet-1.19.jar/META-INF/taglib.tld" project="lightsaverws"/>
+    </library>
+   </libraries>
+  </path>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jackson-mapper-asl-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-spdy.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-jdbc.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jackson-xc-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jackson-xc-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jettison-1.1.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-dbcp.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-util-scan.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-jni.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/el-api.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/jsp-api.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/websocket-api.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jersey-json-1.19.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jsr311-api-1.1.1.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-api.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/jasper-el.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/catalina-ant.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jersey-core-1.19.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jersey-server-1.19.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/sistemas embarcados/java/jersey-archive-1.19/jackson-jaxrs-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/catalina-ha.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/jasper.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jersey-client-1.19.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-i18n-ja.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jersey-server-1.19.jar"/>
+  <path value="/home/matheus/Documents/sistemas-embarcados/java/lightsaverws/WebContent/WEB-INF/lib/jackson-jaxrs-1.9.2.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/servlet-api.jar"/>
+  <path value="/home/matheus/Documents/desenvolvimento/apache-tomcat-8.0.21/lib/tomcat-i18n-es.jar"/>
+ </paths>
+ <validation>
+  <el/>
+ </validation>
+ <aliases/>
+ <includes/>
+ <uris/>
+</kb-project>

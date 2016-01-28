@@ -47,6 +47,8 @@ long lerSensoresRF() {
   luminosidade = map(luminosidade, 0, 1023, 0, 200);
   distancia = map(distancia, 0, 1023, 0, 250);
   temperatura = map(temperatura, 0, 1023, 0, 50);
+  
+  //Serial.println(distancia);
     
   long rf = RFID_LIMITE_INFERIOR;
   long info = rf << DESLOCAMENTO_RFID;
@@ -116,6 +118,7 @@ void enviarParaUSB(){
   Serial.write('I');
   Serial.write((uint8_t*) &infoRF, sizeof(infoRF));
   Serial.write('F');
+  //Serial.println(infoRF);
 #endif
 }
 
@@ -142,7 +145,7 @@ void loop() {
   long info = lerSensoresRF(); 
   emitir(info);
     
-  delay(50);
+  delay(500);
   
   // RECEPCAO DE DADOS
   info = receber();
